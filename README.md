@@ -10,6 +10,8 @@ Please see the tentative schedule for the course below. The instructor reserves 
 
 Course Materials and associated links will be added and updated periodically.
 
+<div align="center">
+  
 | Week 	| Date   	| Topic                                   	| Comments 	|
 |------	|--------	|-----------------------------------------	|----------	|
 | 1    	| 18-Jan 	| Introduction to Forecasting  R          	|          	|
@@ -32,3 +34,5 @@ Course Materials and associated links will be added and updated periodically.
 | 16   	| 2-May  	| (G)ARCH Models                          	|          	|
 |      	|        	| **EXAM 2**                          	|          	|
 |      	| 6-May  	| **FINAL PROJECT DUE - 9:00 PM**     	|          	|
+  
+</div>
