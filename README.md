@@ -14,7 +14,8 @@ Course Materials and associated links will be added and updated periodically.
   
 | Week 	| Date   	| Topic                                   	| Comments 	|
 |------	|--------	|-----------------------------------------	|----------	|
-| 1    	| 18-Jan 	| Introduction to Forecasting  R          	|          	|
+| 1    	| 18-Jan 	| Introduction to Forecasting  R          	| Course Syllabus|
+|       |         |                                           | Lecture 1 |
 | 2    	| 24-Jan 	| Introduction to R & RMarkdown            	|          	|
 | 3    	| 31-Jan 	| Exploring & Visualizing Time Series     	|          	|
 | 4    	| 7-Feb  	| Exploring & Visualizing Time Series     	|          	|
