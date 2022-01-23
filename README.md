@@ -14,26 +14,25 @@ Course Materials and associated links will be added and updated periodically.
   
 | Week 	| Date   	| Topic                                   	| Comments 	|
 |------	|--------	|-----------------------------------------	|----------	|
-| 1    	| 18-Jan 	| Introduction to Forecasting  R          	| [Course Syllabus](/Syllabus)|
-|       |         |                                           | Lecture 1 |
-| 2    	| 24-Jan 	| Introduction to R & RMarkdown            	|          	|
+| 1    	| 18-Jan 	| [Introduction to Forecasting](/Lectures/Lecture1-Introduction/1.Intro_Time_Series.pdf)         	| [Course Syllabus](/Syllabus)|
+| 2    	| 24-Jan 	| (Re) Introduction to R & R Markdown       |  HW1 Due - 1/24/2022 (See Datacamp Group)        	|
 | 3    	| 31-Jan 	| Exploring & Visualizing Time Series     	|          	|
 | 4    	| 7-Feb  	| Exploring & Visualizing Time Series     	|          	|
 | 5    	| 14-Feb 	| Basic Forecasting Models                	|          	|
 | 6    	| 21-Feb 	| Basic Forecasting Models                	|          	|
 | 7    	| 28-Feb 	| Time Series Regressions                 	|          	|
-| 8    	| 7-Mar  	| Time Series Regressions                 	|          	|
-|      	|        	| **Exam 1**                          	|          	|
-| 9    	| 14-Mar 	| **SPRING BREAK**                    	|          	|
+| 8    	| 7-Mar  	| **SPRING BREAK**                        	|          	|
+| 9    	| 14-Mar 	|   Time Series Regressions                	|          	|
+|      	|        	| **Exam 1**                          	    |          	|
 | 10   	| 21-Mar 	| Decomposing Time Series                 	|          	|
 | 11   	| 28-Mar 	| Decomposing Time Series                 	|          	|
 | 12   	| 4-Apr  	| Exponential Smoothing & Moving Averages 	|          	|
-|      	|        	| **Project Proposal Due**            	|          	|
+|      	|        	| **Project Proposal Due**            	    |          	|
 | 13   	| 11-Apr 	| Exponential Smoothing & Moving Averages 	|          	|
 | 14   	| 18-Apr 	| ARIMA Models                            	|          	|
 | 15   	| 25-Apr 	| VAR Models                              	|          	|
 | 16   	| 2-May  	| (G)ARCH Models                          	|          	|
-|      	|        	| **EXAM 2**                          	|          	|
-|      	| 6-May  	| **FINAL PROJECT DUE - 9:00 PM**     	|          	|
+|      	|        	| **EXAM 2**                          	    |          	|
+|      	| 6-May  	| **FINAL PROJECT DUE - 9:00 PM**     	    |          	|
   
 </div>
