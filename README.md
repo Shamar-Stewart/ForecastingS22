@@ -17,7 +17,8 @@ Course Materials and associated links will be added and updated periodically.
 | 1    	| 18-Jan 	| [Introduction to Forecasting](/Lectures/Lecture1/1.Intro_Time_Series.pdf)         	| [Course Syllabus](/Syllabus)|
 | 2    	| 24-Jan 	| [(Re) Introduction to R](https://htmlpreview.github.io/?https://github.com/Shamar-Stewart/ForecastingS22/blob/main/Lectures/Lecture1/R_Introduction.nb.html)  & [R Markdown](https://htmlpreview.github.io/?https://github.com/Shamar-Stewart/ForecastingS22/blob/main/Lectures/Lecture1/RMarkdown_Intro.html)       |  HW1 Due - 1/24/2022 (See Datacamp Group)        	|
 | 3    	| 31-Jan 	| [Exploring & Visualizing Time Series](/Lectures/Lecture2/2-Visualizing-Time-Series.pdf)     	|          	|
-| 4    	| 7-Feb  	| Exploring & Visualizing Time Series     	|          	|
+| ~4~   	| ~7-Feb~  	| ~Exploring & Visualizing Time Series~     	|          	|
+| 4   	| 7-Feb  	| [Basic Forecasting Models](/Lectures/Lecture3/3.Evaluation_of_Basic_Forecasting_Models.pdf)                	|   [HW2 - Due (2-14-2022) -pdf](/Homework/HW2/AAEC_4984_5484_HW2_S22.pdf)<br> [HW2 - Rmd](/Homework/HW2/AAEC_4984_5484_HW2_S22.Rmd)       	|
 | 5    	| 14-Feb 	| Basic Forecasting Models                	|          	|
 | 6    	| 21-Feb 	| Basic Forecasting Models                	|          	|
 | 7    	| 28-Feb 	| Time Series Regressions                 	|          	|
