@@ -1,0 +1,79 @@
+---
+title: 'AAEC 4984/5484: Applied Economic Forecasting'
+author: "Put your name here"
+date: |
+    Homework #2 - Spring `r format(Sys.Date(),"%Y")` 
+output: 
+  pdf_document:
+    keep_tex: no
+
+header-includes:
+ \usepackage{float} #fixes position of figures
+geometry: margin=0.8in # sets the page margins
+---
+
+```{r setup, include=FALSE}
+library(fpp2)
+theme_set(theme_bw()) # change if you would like.
+knitr::opts_chunk$set(echo = TRUE, fig.pos = 'H')
+```
+
+
+The purpose of this assignment is to enhance your understanding of time series and data patterns. It is intended to be rather straightforward and simple.
+
+**Instructions**: 
+
+- **Where necessary, please ensure that your graphs and visuals have properly titles and axes labels.** 
+- Recall that you can use `help()` to find out about the data in each series. 
+
+# Question 1: Visualizing Time Series Data
+
+Create time plots of the following time series: `bicoal`, `chicken`, `dole`, `usdeaths`, `lynx`, `goog`, `writing`, `fancy`, `a10`, `h02`. 
+
+- Please use the `grid.arrange` function of the `gridExtra` package to arrange your plots as a `5 x 2` grid. Below, I have provided the base code to achieve this. 
+
+
+```{r Q1plots, eval = FALSE, fig.height=9.5,out.width="\\textwidth"} 
+# To display your graphs, remember to delete the eval = FALSE code chunk option. 
+# Edit the height etc to match your preference.
+g1 <- autoplot(.) + labs(title = ".", x ="" , y = "  ")
+g2 <- "..." 
+g3 <- "..."
+g4 <- "..."
+g5 <- "..."
+g6 <- "..."
+g7 <- "..."
+g8 <- "..."
+g9 <- "..."
+g10 <- "..."
+
+gridExtra::grid.arrange(......, nrow=5,ncol=2)
+```
+
+\newpage
+
+# Question 2: Assessing Seasonality
+
+i. Use the `ggseasonplot()`, `ggsubseriesplot()`, and `ggAcf` functions to explore possible seasonality in the following time series: `writing`, `fancy`, `a10`, `h02`. 
+
+- Please use the `grid.arrange` function of the `gridExtra` package to arrange your plots. You are free to organize them by chart type or series.
+
+- **It might be useful to set the max lag in the ACF to 36 so that you can see a fair bit of the patterns in the correlogram.** 
+
+ii. What can you say about the seasonal patterns?
+
+iii. Can you identify any unusual years?
+
+\newpage
+
+# Question 3: White Noise?
+
+`goog` contains closing stock prices of Google Inc., now Alphabet Inc. (GOOG), from the NASDAQ exchange, for 1000 consecutive trading days between 25 February 2013 and 13 February 2017. 
+
+i. Plot this series and its ACF. Comment on any pattern noticed in both. Does this series look like white noise?
+
+ii. Now, use `dgoog <- diff(goog)` to compute the daily changes in the index. 
+
+iii. Produce an `autoplot` of `dgoog` and its `ggAcf`. Do the changes in the Daily Google Stock prices look like white noise?**Recall that a simple yes will not suffice. You will need to explain your conclusion.**
+
+
