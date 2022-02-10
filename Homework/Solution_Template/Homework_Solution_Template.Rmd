@@ -1,0 +1,71 @@
+---
+title: 'Applied Economic Forecasting'
+author: "Homework Solution Sample Template"
+output: pdf_document
+header-includes:
+ \usepackage{float} # Fixes position of graphs
+ 
+geometry: margin=0.8in # sets the page margin as 0.8in all around
+---
+
+```{r setup, include=FALSE}
+# I will use this chunk to 
+ # - set the libraries necessary to execute the exercises below
+ # - default options of my code chunks, graphs, etc.
+library(fpp2)
+theme_set(theme_bw())
+knitr::opts_chunk$set(echo = TRUE) 
+knitr::opts_chunk$set(fig.pos = 'H') #Fixes the position of my graphs 
+```
+
+This template will provide a guide of what I anticipate that your homework solutions will look like. However, please feel free to exercise your creativity when producing your solutions. 
+
+- Unless stated, please display the R chunk that produced your results.
+
+- Please ensure you do a quick spell check of your document. Press **F7** on your keyboard.
+
+- All tables, graphs, and figures must be accompanied by an appropriate title. Graphs axes must be labeled, where appropriate.
+
+- **Whenever appropriate, please refer to the output.** Please take a look at the `.Rmd` file in this template to see how I am able to:
+
+i. Add captions to my plots, 
+ii. hyperlink and reference the plots, and
+iii. embed the results stored in the R chunks into my text. Gone are the days when you have to memorize the result and then type it over in your word document. Once it is stored in a variable, you can directly extract it in the document text.
+
+# Question 1: Generating random variables
+
+i. Generate a random normal variable, `x1`, that has 50 observations, a mean of 75, and standard deviation of 5. That is $x1\sim N(75,5^2)$. 
+
+- Use a seed of 12345. 
+- set x1 as a ts object (`x1.ts`). Declare as a quarterly variable ending December 2020.
+- Plot x1.ts 
+
+```{r x1plots, fig.align="center", fig.height= 2.3, fig.cap= "Plot of X1"} 
+set.seed(12345)
+x1 <- rnorm(50,mean=75,sd=5)
+x1.ts <- ts(x1, frequency = 4, end = c(2020,4))
+autoplot(x1.ts, col = "green4") + labs(title = "Plot of x1", x = NULL , y = NULL)
+```
+ 
+ii. Do you notice any discernible patterns in the plot?
+
+**The observations of x1 in Figure \ref{fig:x1plots} appear to be random with no discernible pattern.**
+
+iii. How do the sample mean and standard deviation compare to the population values?
+
+```{r}
+meanx1 <- round(mean(x1),3)
+stdx1 <- round(sd(x1),3)
+```
+
+**The random draw of 50 observations has a mean of `r meanx1` and a standard deviation of `r stdx1`. These are not too far off from their respective population values of 75 and 5, respectively.**
+
+# Question 2: White Noise
+
+i. Plot the ACF of this series and comment on your observations.
+```{r x1acf, fig.align="center", fig.cap= "ACF Plot of X1"} 
+ggAcf(x1.ts, col = "blue4",lag.max = 24) + labs(title = "ACF Plot of x1") 
+```
+
+**From the plots in Figure \ref{fig:x1acf}, all the autocorrelation statistics are within the 95% significance bands. Therefore, we can conclude that the series, `x1`,  is not distinguishable from a white noise process.**
+
