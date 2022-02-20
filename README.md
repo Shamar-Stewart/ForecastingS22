@@ -20,8 +20,8 @@ Course Materials and associated links will be added and updated periodically.
 | ~4~   	| ~7-Feb~  	| ~Exploring & Visualizing Time Series~     	|          	|
 | 4   	| 7-Feb  	| [Basic Forecasting Models](/Lectures/Lecture3/3.Evaluation_of_Basic_Forecasting_Models.pdf)                	|   [HW2 - Due (2-14-2022) -pdf](/Homework/HW2/AAEC_4984_5484_HW2_S22.pdf)<br> [HW2 - Rmd](/Homework/HW2/AAEC_4984_5484_HW2_S22.Rmd)       	|
 | 5    	| 14-Feb 	| Basic Forecasting Models <br> [Time Series Regressions](/Lectures/Lecture4/4.Time_Series_Regressions.pdf)                	|          	|
-| ~6~    	| ~21-Feb~ 	| ~Basic Forecasting Models~                	|          	|
-| 6    	| 21-Feb 	| Basic Forecasting Models                	|          	|
+| ~6~    	| ~21-Feb~ 	| ~Basic Forecasting Models~                	|           	|
+| 6    	| 21-Feb 	| Time Series Regressions               	| [HW3 - Rmd Due 2/28/22](/Homework/HW3/Homework3_S2022.Rmd)          	|
 | 7    	| 28-Feb 	| Time Series Regressions                 	|          	|
 | 8    	| 7-Mar  	| **SPRING BREAK**                        	|          	|
 | 9    	| 14-Mar 	|   Time Series Regressions                	|          	|
