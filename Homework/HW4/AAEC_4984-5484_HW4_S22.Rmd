@@ -1,0 +1,117 @@
+---
+title: 'AAEC 4984/5484: Applied Economic Forecasting'
+author: "Your Name here"
+date: |
+    Homework #4 - Spring `r format(Sys.Date(),"%Y")` 
+output: pdf_document
+header-includes:
+ \usepackage{float}
+geometry: margin=0.8in
+---
+
+```{r setup, include=FALSE}
+library(fpp2)
+knitr::opts_chunk$set(echo = TRUE, fig.pos = 'H', fig.height = 3, out.width="\\textwidth") 
+theme_set(theme_bw()) #Feel free to change if you like
+```
+
+**Instructions**: In all cases, please ensure that your graphs and visuals have properly titles and axes labels, where necessary. Refer to the output, whenever appropriate, when discussing the results. **Lastly, remember that creativity (coupled with relevance) will be rewarded.**
+
+# Money Supply Problem
+
+In this exercise, we will Shift our focus to macroeconomics. Do not worry, little knowledge of this area of economics is needed to solve the problems.
+
+I have simulated quarterly data of Money supply (M1) in Million dollars, starting in 1975Q1, for a fictitious country called Misopodata. Your task is to use the tools that you learned in the Time Series Regression (and previous modules) to forecast the values for the next 3 years. 
+
+Throughout, we will **estimate**, **interpret**, and **evaluate** the results and performance of our basic forecasting model in-sample (training period) and the out-of-sample (testing period). 
+
+1. Using my code below, import the M1 data directly from our GitHub site into `R`.
+
+```{r importdata}
+# Store file url
+fileurl <- "https://raw.github.com/Shamar-Stewart/ForecastingS22/master/Homework/HW4/m1_data.csv"
+# Download and store the data from GitHub
+dat <- read.csv(fileurl)
+```
+
+2. Next, using the `ts()` function, declare `dat` as a time series object with the appropriate frequency and starting date. Save this into a variable called `m1`. 
+  - Be sure to drop the first column of `dat`.
+
+
+3. Present a `autoplot` of `m1`. **Briefly** comment on your plot.
+**Be sure to properly label your axes**.
+
+
+4.  Using the `ggsubseriesplot` and `ggACF` commands, **briefly comment** on possible seasonality and trends in the `m1` data. 
+
+- It would be best to set the maximum lag of your `ggAcf` to 24 so that you can properly see the pattern.
+
+- **Use the `grid.arrange()` command to combine your plots as a grid.**
+
+5. Now using the `tslm()` function, regress `m1` on a time trend. 
+
+- Store the estimation results in a variable called `m.fit`.
+- Report the model results stored in `m.fit` using the `summary()` command.
+
+
+6. Briefly interpret the value on the time trend variable.
+
+
+7. Briefly interpret the coefficient of determination, $R^2$ of this model.
+
+
+
+8. Produce a time plot of the fitted values and actual data over full sample. Be sure to include appropriate labels for each series.
+
+**Now briefly comment on anything you notice here.**
+
+
+
+9. Conduct a residual check and comment on any discernible pattern in the residuals of `m.fit`. Specifically, are any of the assumptions possibly violated?
+
+**Useful hints for answering this question:**
+
+- **What does the BG test tell you regarding autocorrelation?** You already know that the null and conclusions must be stated here.
+- **Does the `autoplot` of the residuals exhibit any noticeable pattern?**
+- **What does the ACF tell you about the residuals of the model stored in** `m.fit`?
+
+
+10. Using the `tslm` command, estimate a regression of `m1` on a **trend** and the **seasonal dummies**. 
+
+- Store the estimation results in a variable called `m.fit2`.
+- Use the summary command to report the results of `m.fit2`.
+
+
+11. Briefly interpret the value of the intercept from your model in 10.
+
+**Hint: Think about the omitted season here and the definition of our dummy variables.**
+
+
+12. How would you **interpret** the value on `season4`? To get full credit here, you must discuss both the sign and magnitude of the coefficient.
+
+
+13. Produce a time plot of the fitted values of `m.fit2` and actual data. Be sure to include labels for the each series.
+
+**Now briefly comment on anything you notice here relative to the plot in Part 8.**
+
+
+14.  Using the `checkresiduals()` function, conduct a diagnostic test and comment on any discernible pattern in the residuals of `m.fit2`.
+
+Does the autocorrelation problem seem to be corrected? 
+**Note: It is possible that the inclusion of seasonality has done little to resolve all the problems you observed earlier**
+
+**Useful hints for answering this question:**
+
+- **What does the BG test tell you regarding autocorrelation?**
+
+- **What does the ACF tell you about the residuals of the model stored in `m.fit2`? Do they appear to be white noise?** 
+
+
+15. Using the `forecast` function produce the predictions for the next 3 years (h = 4*3) from our models stored in `m.fit` and `m.fit2`. Store this these `fore.fit1` and `fore.fit2`, respectively. 
+
+**You are only required to store the model forecast results in this step.**
+
+
+16.  Similar to your last homework, `cbind` your data series, `m1` and the **point forecasts** of `fore.fit1` and `fore.fit2` (remember you will need to extract the mean column) and store into a variable called `tmp`. Next, produce a single graph of the elements of `tmp`.
+
+*Your aim here is to visualize the model fits for each method against the actual data.*
