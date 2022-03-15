@@ -24,7 +24,7 @@ Course Materials and associated links will be added and updated periodically.
 | 6    	| 21-Feb 	| Time Series Regressions               	| [HW3 - Rmd Due 2/28/22](/Homework/HW3/Homework3_S2022.Rmd)          	|
 | 7    	| 28-Feb 	| [Decomposing Time Series](/Lectures/Lecture5/5.Time_Series_Decomposition.pdf) <br> [Manual Decomposition - R Notebook]()	|          	|
 | 8    	| 7-Mar  	| **SPRING BREAK**                        	|          	|
-| 9    	| 14-Mar 	| Decomposing Time Series               	|  [HW4 - Rmd](/Homework/HW4/AAEC_4984-5484_HW4_S22.Rmd)        	|
+| 9    	| 14-Mar 	| Decomposing Time Series               	|  [HW4 - Rmd (Due: 3/21/2022)](/Homework/HW4/AAEC_4984-5484_HW4_S22.Rmd)        	|
 |      	|        	| **Exam 1**                          	    |          	|
 | 10   	| 21-Mar 	| Exponential Smoothing & Moving Averages                	|          	|
 | 11   	| 28-Mar 	| Exponential Smoothing & Moving Averages               	|          	|
