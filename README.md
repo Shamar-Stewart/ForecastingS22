@@ -25,8 +25,8 @@ Course Materials and associated links will be added and updated periodically.
 | 7    	| 28-Feb 	| [Decomposing Time Series](/Lectures/Lecture5/5.Time_Series_Decomposition.pdf) <br> [Manual Decomposition - R Notebook]()	|          	|
 | 8    	| 7-Mar  	| **SPRING BREAK**                        	|          	|
 | 9    	| 14-Mar 	| Decomposing Time Series               	|  [HW4 - Rmd (Due: 3/21/2022)](/Homework/HW4/AAEC_4984-5484_HW4_S22.Rmd)        	|
-|      	|        	| **Exam 1**                          	    |          	|
-| 10   	| 21-Mar 	| Exponential Smoothing & Moving Averages                	|          	|
+|      	|        	| **Exam 1**                          	    | [EXAM 1 KEY](Exams/Exam1_S2022_Solutions.pdf)         	|
+| 10   	| 21-Mar 	| Exponential Smoothing & Moving Averages                	|[HW5 - Rmd (Due: 4/4/2022)](/Homework/HW5/AAEC_4984_5484_HW5_S22.Rmd)          	|
 | 11   	| 28-Mar 	| Exponential Smoothing & Moving Averages               	|          	|
 | 12   	| 4-Apr  	|  	|          	|
 |      	|        	| **Project Proposal Due**            	    |          	|
