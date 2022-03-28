@@ -1,0 +1,150 @@
+---
+title: 'AAEC 4984/5484: Applied Economic Forecasting'
+author: "Your Name Here"
+date: |
+    Homework #5 - Spring `r format(Sys.Date(),"%Y")` 
+output: pdf_document
+header-includes:
+ \usepackage{float}
+geometry: margin=0.75in
+---
+
+
+```{r setup, include=FALSE}
+library(fpp2)
+library(quantmod)
+knitr::opts_chunk$set(echo = TRUE, fig.pos = 'H', 
+                      fig.height = 3.5, message = FALSE,
+                       warning = FALSE, 
+                      out.width="\\textwidth") 
+theme_set(theme_bw()) #Feel free to change if you like
+```
+
+**Instructions**: In all cases, please ensure that your graphs and visuals have properly titles and axes labels, where necessary. Refer to the output, whenever appropriate, when discussing the results. 
+
+# PART I: (Manual) Classical Decomposition 
+
+**In the class notes, we explored the manual computation/coding of the Classical decomposition of an Additive series. Here, I would like you to reproduce that same idea but for a series with a multiplicative pattern.**
+
+We will use the `quantmod` package to pull data on "Retail Sales: Beer, Wine, and Liquor Stores" from the FRED website (<https://fred.stlouisfed.org/series/MRTSSM4453USN>) into `R`. 
+
+In the questions that follow, we will analyze and decompose this data.
+
+1. Pull the data and store it in a variable called `liquor`. In a single step, I would like you to 
+
+- extract the "coredata",
+- declare the variable as a `ts` object start as a **monthly** series beginning in  January 1992.
+
+```{r pull_liquor}
+## Pull the symbol from FRED
+getSymbols(____, src = ____)
+
+## Extract the core data of the xts object and declare as a ts object.
+liquor <- coredata(____) %>% ts(start  = ____, frequency = ____ )
+
+```
+
+2. Plot a graph of the `liquor` series and **briefly** comment on and pattern you observe. *To help with your titling, please visit website.*
+
+
+3. With these observations, wee are now ready to perform our decomposition. Recall that with a multiplicative decomposition, the functional form is:
+$$y_t = T_t \times S_t \times R_t $$
+
+Step 1. Using a centered moving average of order 12, extract the `trend-cycle` component, $T_t$. Also, plot your trend.
+
+
+Step 2. Using the trend computed above, compute the detrended variable.
+
+
+
+Step 3. Using regression analysis, extract the seasonal component, $S_t$. Also, plot your seasonal component.
+
+
+Step 3b. Using the extract seasonal component, $S_t$, *compute* and *plot* the seasonally-adjusted variable. 
+**Save this seasonally-adjusted variable for use later**
+
+
+Step 4. Lastly, compute the remainder component.
+
+
+Step 5. Produce the plot of the data and three components as per the class notes. Store your plot as `plot1`.
+
+**It would be useful to order your variables as Data >> Trend >> Seasonal >> Remainder**
+
+
+Step 5b. Use the `decompose` function to create the **multiplicative** decomposition of the series. Store this plot as `plot2`.
+
+
+Step 6. Use the `gridarrange` command to create a 2 column plot of your two plots stored above.
+
+
+4. Produce an `autoplot` of the actual data, `liquor`, and `autolayer` your trend and seasonally-adjusted variable from Steps 1 and 3b above. Ensure that your series are properly labeled. 
+
+
+\newpage
+
+# PART II: Forecasting the US Unemployment Rate
+
+In this exercise, our objective is two-fold. We 
+
+(i) will pull economic data directly into `R`. 
+(ii) want to see how well we could have forecasted the unemployment statistics for 2019 using our basic time series decomposition techniques.
+
+(a) Using the `getSymbols` command from the`quantmod` package, let us import the non-seasonally adjusted monthly US unemployment (`UNRATENSA`) data from `FRED`. 
+
+
+(b) Given the unusually volatile unemployment observed during the pandemic, we will remove 2020 and beyond from our sample. In the codes that follow we will store the data from January 1980 to December 2019 and convert to a `ts` object called `unrate`.
+
+
+(c) Report `autoplot` and `ggAcf` of the `unrate` data. Discuss any noticeable trend and/or seasonality in the data. Also, based on your plot, would you agree that an additive model is appropriate? **Explain.** 
+
+**Hints:**
+
+- You might want to set the lag.max = 60 in you ACF plot.
+- Yes, it is very likely that you do not observe any strong seasonality in the data and ACF plots.
+
+
+(d) Using the `window` command, assign the values in `unrate` up to, and including December 2017 as a training set called `unrate.train`. Assign the values **after** December 2017 to a variable called `unrate.test`.
+
+
+(e) Using the **training set** above and a `STL` decomposition with fixed seasonal windows (s.window = "periodic"), `t.window = 13`, and `robust = TRUE`, present the plot of the decomposition of the `unrate.train` series. You will find it best to store the model result first. 
+
+**Note: Use `unrate.train[,1]` in the `stl` command. It seems to throw an error otherwise.**
+
+
+(f) Superimpose the `seasonally-adjusted` and `trend-cycle` series onto the training data, `unrate.train`. 
+
+*You might need to change your line colors to ensure that each series is visible.*
+
+
+(g) Using a `naive` model and the `forecast()` function, produce predictions for the unemployment data for 2018 \& 2019. *I am asking you to produce forecasts of the re-seasonalized series for the next 24 months.* 
+
+- Please store your predictions in a variable called `pred.unrate`. 
+- Create an `autoplot` of `pred.unrate`.
+
+
+(h) To visualize the fit of your forecast against the actual test data, produce an `autoplot` of the test data, `unrate.test`, and `autolayer` the prediction values using `pred.unrate[["mean"]]`. **Briefly discuss the visuals here.** 
+
+***The emphasis of your discussion should be on how well this simple STL model captures the dynamics of the actual data that we tried to forecast.***
+
+
+(i) One of the most desirable property of the STL function is that we can allow for changing seasonality. 
+
+Again, using the **training set** and a `STL` decomposition but with `s.window = 13`, `t.window = 13`, and `robust = TRUE`, present the plot of the decomposition of the `unrate.train` series. Again, you will find it best to store the model results first. 
+
+**Note: Use `unrate.train[,1]` in the `stl` command. It seems to throw an error otherwise.**
+
+
+(j) Use the `rwdrift` model and the `forecast()` function, to produce predictions for the model stored in (i). *Again, I am asking you to produce forecasts of the re-seasonalized series for the next 24 months.* 
+- Please store your predictions in a variable called `pred.unrate2`. 
+- Create an `autoplot` of `pred.unrate2`.
+
+
+(k) Visually, both model predictions do not appear to be much different. If we were forced to choose between them though, we would have to do so based on our model selection criteria.
+
+Using the `accuracy` command compare the forecasted values in `pred.unrate` and `pred.unrate2` against the test data, `nrate.test`. 
+
+Your ultimate aim is to use the `MAPE` and `RMSE` statistics to choose the "best" model. **Explain how you come to your conclusion.**
+
+- Present your statistics formatted using the `kable` command with appropriate row and column names.
+
