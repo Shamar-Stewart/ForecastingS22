@@ -1,0 +1,84 @@
+---
+title: 'AAEC 4984/5484: Applied Economic Forecasting'
+author: "Your Name Here"
+date: |
+    Homework #6 - Spring `r format(Sys.Date(),"%Y")` 
+output: pdf_document
+header-includes:
+ \usepackage{float}
+geometry: margin=0.75in
+---
+
+
+```{r setup, include=FALSE}
+library(fpp2)
+library(quantmod)
+knitr::opts_chunk$set(echo = TRUE, fig.pos = 'H',
+      message = FALSE, warning = FALSE, 
+      out.width="\\textwidth", fig.height = 4) 
+theme_set(theme_bw() + theme(legend.position="bottom"))
+```
+
+**Instructions**: Please ensure that your graphs and visuals have properly titles and axes labels, where necessary. Refer to the output, whenever appropriate, when discussing the results. **Lastly, remember that creativity (coupled with relevance) will be rewarded.**
+
+# Problem
+
+The FRED database has some useful macroeconomic data for the U.S. and other major economies. One such series that may be of interest to you is the "Delinquency Rate on Loans to Finance Agricultural Production, All Commercial Banks (DRFAPGACBN)". More details of the series can be found here: <https://fred.stlouisfed.org/series/DRFAPGACBN>
+
+Let us assume that the Farm Credit Council would like to forecast the delinquency rate on loans made to farmers but do not have a forecasting system in place. Someone on the board heard that you took this course from the AAEC department and solicited your help.
+
+You reached out to me for some guidance given that you learned so much in the class that you are unsure where best to begin. I sent you the outline below and believe it should be good to help with forecasting the delinquency rate. 
+
+1. Using the `quantmod` package, pull the `DRFAPGACBN` series from the FRED's website. Declare the `coredata` of this series as a `ts()` object with the appropriate `start` and `frequency` arguments. Save the final ts variable and `delrate`.
+**Do not be afraid to refer to HW5 for help with this**
+
+
+2. Using appropriate graphs, visualize the data and briefly comment on any relevant properties that you deem pertinent. 
+
+- In particular, does there appear to be seasonality and/or a trend? 
+  - If there is seasonality, does it appear to be multiplicative or additive? **Be sure to explain how you arrived at your conclusion.**
+
+
+Now let us back-test a few strategies to see which one would have performed best on past data with the expectation that it will also perform best moving forward.
+
+3. Subset the data into a training set, `delrate.train`, and test set, `delrate.test`. Following the board's policy, assign period after 2015Q4 to the test set. **You might find it easiest to use the `window` command**
+
+
+4. As a benchmark model, estimate a seasonal naive model on the seasonal naive model **setting the forecast horizon to the length of your test data**. Store the results as `del.snaive`. Produce a plot that includes the training and test data, as well as the point forecasts of your model results. *Ensure your series are properly labeled*
+
+
+5. Using a simple exponential smoothing with `initial = "optimal"` produce the forecasts for the appropriate horizon. Save the results as `del.ses`. Next produce the plot of the training and test data, as well as the point forecasts of your model results. *Ensure your series are properly labeled* 
+
+
+*You notice that neither of these models does a particularly good job of forecasting the trend in the data. As a result you decided to estimate the Holt model.*
+
+6. Using a Holt model, forecast the delinquency rate over the appropriate forecast horizon. Store your results as `del.holt`. Repeat the plot above for your model results here.
+
+
+
+7. What is your takeaway from the graph above? Does the point at which you subset the data actually seem to matter for the model predictions above?
+
+
+8. Forecast the appropriate horizon using a Holt-Winters model with multiplicative seasonality. Store your model estimation results as `del.hw` then reproduce the graph above for this model's results.
+
+9. In a single graph, `autoplot` the training data with the test data and the point estimate of each model autolayered.
+
+
+10. Which of the four (4) forecasting models (`del.snaive`, `del.ses`, `del.holt` or `del.hw`) provides the better forecast? 
+
+Use the `RMSE`, `MAPE`, and `MSE` to make your **justify** your final determination. You are required to create a table using the `kable` command here.
+
+
+11. Using the `checkresiduals()` command of your preferred model, comment on whether the residuals appear to be white noise. **For you answers, be sure to discuss the null of the Ljung-Box statistics and you conclusion at the 1% and 5% levels of significance. **
+
+
+12. Write a brief **nontechnical** report to the board reporting your findings. 
+
+- You report would include an explanation of how you arrived at the preferred model but try not to bore them with all the technical details involved.
+
+- Since you have a preferred model, use it on the **full data** to provide forecasts for the next 2 years (h = 8) and potentially frame your discussion around that.
+
+- What does your forecast imply about the delinquency rate on loans to the Ag sector in the next 2 years? Is there an expected decline/increase?  
+
+**In the main, this question is free-form and my attempt to have you explaining you model results to a non-scientific audience.**
+
