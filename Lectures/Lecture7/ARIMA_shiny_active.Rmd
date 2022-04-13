@@ -1,0 +1,63 @@
+---
+title: "Simulating AR(1) and MA(1) models"
+author: "Amso Proud"
+date: ""
+output: 
+  html_document:
+    toc: true
+    toc_float: true
+    theme: journal 
+runtime: shiny
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE, size = "small")
+require(mosaic)
+require(fpp2)
+theme_set(theme_bw())
+```
+
+## Interactive Plot of ARMA processes.
+
+This R Markdown document is created to help with you understanding of how to identify AR and MA processes. You can slide the scales to select the $\phi$ ($\omega$) parameter value in the AR (MA) equations.
+
+For simplicity, I have ignored the case where we have an ARMA model-- lags of both $y$ and $\varepsilon$ are added as regressors in our model. Additionally, our model will accept only 1 parameter vale -- AR(1) or MA(1) models only.
+
+These graphs are created using the `shiny` application builder in `R`.
+
+
+## Inputs and Outputs
+
+In this section we will define the Shiny inputs and output. The cool thing about the interactive shiny document is that the outputs are automatically updated whenever inputs change.  
+
+
+```{r arma, echo = FALSE, eval = TRUE}
+
+inputPanel(
+   numericInput(inputId = ________, ______________ , value = _____________),  # Input the desired size of the sample we will be generating.
+  sliderInput(
+    withMathJax(),
+    inputId = _____________, label = ________________, 
+              min = __________, max = ______________, value = ________, step = _____), # We will use the slider to determine the AR and MA coefs
+  radioButtons(inputId = "show", ___________________,
+                     choices = c(`AR` = "ar",
+                                 `MA` = "ma"), # Use radio buttons to specify the model under consideration
+                     selected = ________________) # By default, we will choose the ar model
+) 
+  renderPlot({
+    set.seed(123) # Set seeds to ensure reproducibility
+
+    if ("ar" %in% ____________) #if ar is selected above, we will execute this equation.
+ggtsdisplay(______________________), main = paste0(______________________))
+    
+    if ("ma" %in% ___________) #if ma is selected above, we will execute this equation.
+ggtsdisplay(_______________________, main = paste0(___________________________))
+
+  })
+
+
+```
+
+## Want to learn more about `shiny`?
+
+To learn more, see [Interactive Documents](http://rmarkdown.rstudio.com/authoring_shiny.html).
