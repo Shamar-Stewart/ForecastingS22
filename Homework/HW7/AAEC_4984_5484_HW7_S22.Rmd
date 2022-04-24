@@ -1,0 +1,86 @@
+---
+title: 'Applied Economic Forecasting'
+author: "Your Name Here"
+date: |
+    Homework #7 - Spring `r format(Sys.Date(),"%Y")` 
+output: pdf_document
+header-includes:
+ \usepackage{float}
+geometry: margin=0.8in
+---
+
+```{r setup, include=FALSE}
+rm(list = ls())
+library(fpp2);
+library(quantmod)
+theme_set(theme_bw() + theme(legend.position="bottom"))
+knitr::opts_chunk$set(echo = TRUE, fig.pos = 'H', 
+                      fig.height = 3, message = FALSE,
+                       warning = FALSE, 
+                      out.width="\\textwidth") 
+knitr::opts_chunk$set(fig.pos = "H", out.extra = "") 
+```
+
+**Instructions**: In all cases, please ensure that your graphs and visuals have properly titles and axes labels, where necessary. Refer to the output, whenever appropriate, when discussing the results. 
+
+# Question 1: Forecasting fidgit's Sales growth 
+
+Assume that *Fidgity* is a local company that specializes in selling fidget spinners. When the business started in 1996, fidget were quite popular and the company experienced strong sales growth. In recent years, demand for this once favorite pastime has faded and the growth in sales has steadily declined.
+
+The company has advertised a vacancy for a Sales Analysts and you have decided to apply for the job. As a part of the application process, you have been tasked with forecasting the sales growth for the next 2 years. You decided to use an ARIMA model to accomplish this task.
+
+The file, `fidgity_sales.csv`, contains quarterly sales growth figures for 19961 to 2019Q4.
+
+## Visualizing the data
+
+(a) Pull the sales data directly from the HW7 folder on our GitHub site. Convert the data column to a time series object with the appropriate start date and frequency. Report and discuss the `autoplot` and `ggsubseriesplot` of the data.
+
+
+## Exploring Stationarity
+
+(b) Explore the stationarity of the data and apply appropriate transformations, if necessary, to render it stationary. *You might have to difference more than once. Be sure to explain your process here. You might find it useful to support your process with graphs.*
+
+## Transforming Series 
+
+(c) Produce a `ggtsdisplay()` of the transformed series and comment on the ACF and PACF. Based on your analysis, determine the appropriate ARIMA model(s). *Be sure to explain why you chose one model over the other*.
+
+
+## Diagnostics Test
+
+(d) Report the model diagnostics to justify the adequacy of your model in part (c).
+
+## Forecasting with ARIMA
+
+(e) Use the desired model from part (d) to plot the forecasted growth in sales for the next 2 years. 
+
+
+\newpage
+
+# Question 2: Forecasting C02
+
+Carbon Emissions is an ever-evolving and interesting issue among environmental activists and academics alike. 
+
+## Pull Data
+
+(a) Use the `quantmod` package to pull the Transportation Carbon Dioxide Emissions, Aviation Gasoline for Illinois ("EMISSCO2VAVACBILA") from FRED and declare as a `ts` object with the appropriate start date.
+
+
+## Visualizing the Data
+
+(b) Provide a time-series plot of the data and comment on its stationarity. 
+
+
+## Performing Box-Jenkins Procedure
+
+(c) Perform the Box-Jenkins procedure to determine the candidate models for this data. 
+
+- **Be sure to:**
+  - **perform formal unit root testing. You will need to specify the null hypothesis (hypotheses) and corresponding conclusions of the unit root test(s) used.**
+  - **present the AIC and BIC statistics of your candidate model(s) in a table using the `kable()` function. Columns and Rows should be properly labeled.**
+  - **explain how you arrived at your preferred model.**
+  - **report the diagnostic checks to justify the adequacy of your model. Comment on the Ljung-Box test results.**
+  
+  
+## Forecasting with ARIMA
+
+(d) Using your preferred model, present an autoplot of the forecast for the next 5 years. 
