@@ -32,8 +32,8 @@ Course Materials and associated links will be added and updated periodically.
 |      	|        	| **Project Proposal Due**            	    |          	|
 | 13   	| 11-Apr 	| Exponential Smoothing & Moving Averages 	|          	|
 | 14   	| 18-Apr 	| [ARIMA Models](/Lectures/Lecture7/7.ARIMA_Models.pdf) <br> [ARIMA Code Along (.RMD)](Lectures/Lecture7/ARIMA_shiny_active.Rmd)                           	| [HW 6 - Rmd (Due 4/18/2022)](/Homework/HW6/AAEC_4984_5484_HW6_S22.Rmd)         	|
-| 15   	| 25-Apr 	| VAR Models                              	|          	|
-| 16   	| 2-May  	| (G)ARCH Models                          	|          	|
+| ~15~   	| ~25-Apr~	| ~VAR Models~                            	|          	|
+| 16   	| 2-May  	| [(G)ARCH Models](/Lectures/Lecture8/9.G-ARCH-_Models.pdf)                          	|          	|
 |      	|        	| **EXAM 2**                          	    |          	|
 |      	| 6-May  	| **FINAL PROJECT DUE - 9:00 PM**     	    |          	|
   
